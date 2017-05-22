@@ -46,3 +46,11 @@ class CallbackModule(CallbackModule_skippy):
             return super(CallbackModule, self).v2_runner_item_on_ok(result)
         else:
             pass
+
+    def v2_runner_item_on_failed(self, result):
+        self._really_print_task_banner()
+        return super(CallbackModule, self).v2_runner_item_on_failed(result)
+
+    def v2_runner_on_failed(self, result, ignore_errors=False):
+        self._really_print_task_banner()
+        return super(CallbackModule, self).v2_runner_on_failed(result)
